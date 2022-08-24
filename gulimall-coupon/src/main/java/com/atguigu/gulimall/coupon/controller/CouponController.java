@@ -1,6 +1,7 @@
 package com.atguigu.gulimall.coupon.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -30,6 +31,17 @@ import com.atguigu.common.utils.R;
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+    /**
+     * 模拟返回某会员的优惠券
+     * @return
+     */
+    @RequestMapping("/member/list")
+    public R listByMember(){
+        CouponEntity couponEntity = CouponEntity.builder().couponName("满十减一").build();
+        List<CouponEntity> couponEntities = Arrays.asList(couponEntity);
+        return R.ok().put("coupons", couponEntities);
+    }
 
     /**
      * 列表
