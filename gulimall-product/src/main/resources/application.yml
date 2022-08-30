@@ -3,7 +3,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 10086
-    url: jdbc:mysql://47.94.170.18/gulimall_pms
+    url: jdbc:mysql://39.105.115.9/gulimall_pms
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:
