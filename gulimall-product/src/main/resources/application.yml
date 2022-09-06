@@ -3,11 +3,13 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 10086
-    url: jdbc:mysql://39.105.115.9/gulimall_pms
+    url: jdbc:mysql://101.200.228.147/gulimall_pms
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:
     db-config:
       id-type: auto
+      logic-delete-value: 0 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 1 # 逻辑未删除值(默认为 0)
 server:
   port: 10000

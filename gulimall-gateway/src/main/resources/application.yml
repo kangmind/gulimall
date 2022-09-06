@@ -10,6 +10,12 @@ spring:
           uri: https://www.qq.com
           predicates:
             - Query=url,qq
+        - id: product_router
+          uri: lb://gulimall-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/?(?<segment>.*),/$\{segment}
         - id: admin_router
           uri: lb://renren-fast
           predicates:

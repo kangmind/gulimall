@@ -50,6 +50,11 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         return collect;
     }
 
+    @Override
+    public void removeMenusByIds(List<Long> asList) {
+        //TODO 判断菜单是否被引用
+    }
+
     private List<CategoryEntity> buildChildren(List<CategoryEntity> list, CategoryEntity current) {
         List<CategoryEntity> children = list.stream()
                 .filter(categoryEntity -> categoryEntity.getParentCid().compareTo(current.getCatId()) == 0)
