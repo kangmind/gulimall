@@ -1,6 +1,7 @@
 package com.atguigu.gulimall.product.service.impl;
 
 import com.alibaba.nacos.shaded.org.checkerframework.checker.units.qual.C;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -22,6 +23,7 @@ import com.atguigu.gulimall.product.entity.CategoryEntity;
 import com.atguigu.gulimall.product.service.CategoryService;
 
 
+@Slf4j
 @Service("categoryService")
 public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity> implements CategoryService {
 
@@ -53,6 +55,8 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
     @Override
     public void removeMenusByIds(List<Long> asList) {
         //TODO 判断菜单是否被引用
+        int i = baseMapper.deleteBatchIds(asList);
+        log.info("删除了{}个分类", i);
     }
 
     private List<CategoryEntity> buildChildren(List<CategoryEntity> list, CategoryEntity current) {
